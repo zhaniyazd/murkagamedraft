@@ -1,0 +1,133 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 62.5%;
+  /* 10px/16px = 62.5% -> 1rem = 10px */
+}
+
+::-moz-selection {
+  color: white;
+}
+
+::selection {
+  color: white;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("https://alexejklass.github.io/galaxy/img/galaxy.jpg");
+  background-size: 100% 100%;
+}
+
+.ship {
+  background-color: rgba(0, 60, 255, 0);
+  border-radius: 100px;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 6rem;
+  padding-bottom: 10px;
+  cursor: pointer;
+}
+
+.fighter {
+  width: 12rem;
+  height: 12rem;
+}
+
+.laser {
+  position: absolute;
+  left: 50%;
+  top: -15%;
+  width: 60px;
+  height: 60px;
+  -webkit-transform: translate(-17%, 0);
+          transform: translate(-17%, 0);
+  display: inline-block;
+  font-size: 20px;
+}
+
+.asteroid {
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 6rem;
+  padding-bottom: 10px;
+}
+
+.gameover {
+  cursor: pointer;
+  width: 40vw;
+  height: 40vh;
+  background-color: rgba(255, 38, 0, 0.657);
+  border-radius: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.01s linear;
+  transition: all 0.01s linear;
+  font-size: 6rem;
+  z-index: 100;
+  color: #1835db;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}
+
+.gameover:hover {
+  cursor: pointer;
+  width: 70vw;
+  height: 70vh;
+  background-color: rgba(0, 255, 34, 0.657);
+  color: #db1818;
+}
+/*# sourceMappingURL=style.css.map */
