@@ -109,6 +109,6 @@ window.addEventListener('mousemove', event => {
   ship.style.left = event.clientX + 'px'
 })
 
-ship.addEventListener('ontouchmove', event => {
+ship.addEventListener('touchmove', event => {
   ship.style.left = Math.floor(event.touches[0].clientX) + 'px'
 })
