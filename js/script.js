@@ -108,3 +108,7 @@ gameover.addEventListener('click', () => {
 window.addEventListener('mousemove', event => {
   ship.style.left = event.clientX + 'px'
 })
+
+ship.addEventListener('ontouchmove', event => {
+  ship.style.left = event.touches[0].clientX + 'px'
+})
