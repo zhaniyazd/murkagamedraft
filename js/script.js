@@ -13,9 +13,10 @@ stop.addEventListener('click', () => {
   audio.pause()
   audio.currentTime = 0
 })
-
-audio.play()
-audio.volume = 0.01
+window.addEventListener('DOMContentLoaded', () => {
+  audio.volume = 0.01
+  audio.play()
+})
 
 let laserFunction = () => {
   lasersound.pause()
@@ -64,7 +65,7 @@ let laserFunction = () => {
 }
 
 let createAsteroid = () => {
-  let asteroidShape = Math.floor(Math.random() * 3) + 1
+  let asteroidShape = Math.floor(Math.random() * 6) + 1
   let shape
   switch (asteroidShape) {
     case 1:
@@ -75,6 +76,15 @@ let createAsteroid = () => {
       break
     case 3:
       shape = '🦂'
+      break
+    case 4:
+      shape = '👹'
+      break
+    case 5:
+      shape = '🤡'
+      break
+    case 6:
+      shape = '🧞‍♂️'
       break
     default:
       break
