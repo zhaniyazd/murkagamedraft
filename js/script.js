@@ -93,10 +93,6 @@ let createAsteroid = () => {
     asteroid.style.top = positionAsteroid + randomNumber + 'px'
     if (positionAsteroid > window.innerHeight) {
       gameover.style.display = 'flex'
-      clearInterval(asteroidFall)
-      container.removeChild(asteroid)
-      container.removeChild(laser)
-      clearInterval(interval)
     }
   }, 20)
 }
@@ -123,6 +119,7 @@ document.addEventListener('click', event => {
 
 gameover.addEventListener('click', () => {
   gameover.style.display = 'none'
+  container.removeChild(asteroid)
   createAsteroid()
 })
 
