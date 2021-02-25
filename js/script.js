@@ -5,6 +5,7 @@ let gameover = document.querySelector('.gameover')
 let audio = document.querySelector('.audio')
 let lasersound = document.querySelector('.lasersound')
 let crash = document.querySelector('.crash')
+let counter = document.querySelector('.counter')
 
 let laserFunction = () => {
   lasersound.pause()
@@ -38,6 +39,7 @@ let laserFunction = () => {
       ) {
         crash.play()
         crash.volume = 0.3
+        counter.textContent = Number(counter.innerHTML) + 1
         container.removeChild(asteroid)
         container.removeChild(laser)
         clearInterval(interval)
@@ -62,8 +64,8 @@ let createAsteroid = () => {
   container.insertAdjacentElement('beforeend', asteroid)
   let asteroidFall = setInterval(() => {
     let positionAsteroid = asteroid.offsetTop
-    asteroid.style.top = positionAsteroid + 1 + 'px'
-    console.log('falling')
+    let randomNumber = Math.floor(Math.random() * 3) + 1
+    asteroid.style.top = positionAsteroid + randomNumber + 'px'
     if (positionAsteroid > window.innerHeight) {
       gameover.style.display = 'flex'
       clearInterval(asteroidFall)

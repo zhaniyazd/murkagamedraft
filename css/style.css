@@ -96,6 +96,15 @@ body {
   padding-bottom: 10px;
 }
 
+.counter {
+  position: absolute;
+  display: inline-block;
+  font-size: 10rem;
+  color: greenyellow;
+  top: 20px;
+  right: 20px;
+}
+
 .gameover {
   cursor: pointer;
   width: 40vw;
