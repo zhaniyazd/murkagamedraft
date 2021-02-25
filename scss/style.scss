@@ -80,6 +80,18 @@ body {
   top: 20px;
   right: 20px;
 }
+.stop {
+  position: absolute;
+  display: inline-block;
+  font-size: 2rem;
+  color: greenyellow;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+.stop:hover {
+  color: rgb(255, 47, 116);
+}
 
 .gameover {
   cursor: pointer;

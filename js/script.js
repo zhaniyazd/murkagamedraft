@@ -6,12 +6,20 @@ let audio = document.querySelector('.audio')
 let lasersound = document.querySelector('.lasersound')
 let crash = document.querySelector('.crash')
 let counter = document.querySelector('.counter')
+let stop = document.querySelector('.stop')
+
+stop.addEventListener('click', () => {
+  audio.pause()
+  audio.currentTime = 0
+})
+
+audio.play()
+audio.volume = 0.1
 
 let laserFunction = () => {
   lasersound.pause()
   lasersound.currentTime = 0
-  audio.play()
-  audio.volume = 0.1
+
   lasersound.play()
   lasersound.volume = 0.3
   asteroid = document.querySelector('.asteroid')

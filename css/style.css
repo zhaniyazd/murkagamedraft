@@ -105,6 +105,20 @@ body {
   right: 20px;
 }
 
+.stop {
+  position: absolute;
+  display: inline-block;
+  font-size: 2rem;
+  color: greenyellow;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.stop:hover {
+  color: #ff2f74;
+}
+
 .gameover {
   cursor: pointer;
   width: 40vw;
