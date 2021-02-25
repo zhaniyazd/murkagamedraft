@@ -104,3 +104,7 @@ document.addEventListener('click', event => {
 gameover.addEventListener('click', () => {
   location.reload()
 })
+
+window.addEventListener('mousemove', event => {
+  ship.style.left = event.clientX + 'px'
+})

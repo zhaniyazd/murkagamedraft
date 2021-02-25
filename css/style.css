@@ -102,7 +102,7 @@ body {
   font-size: 10rem;
   color: greenyellow;
   top: 20px;
-  right: 20px;
+  right: 26px;
 }
 
 .stop {
@@ -152,5 +152,33 @@ body {
   height: 70vh;
   background-color: rgba(0, 255, 34, 0.657);
   color: #db1818;
+}
+
+@media only screen and (max-width: 700px) {
+  .gameover {
+    width: 70%;
+    height: 20%;
+    background-color: rgba(255, 38, 0, 0.657);
+    border-radius: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    display: none;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-transition: all 0.01s linear;
+    transition: all 0.01s linear;
+    font-size: 2rem;
+    z-index: 100;
+    color: #1835db;
+    -webkit-transition: all 0.5s ease-in;
+    transition: all 0.5s ease-in;
+  }
 }
 /*# sourceMappingURL=style.css.map */
