@@ -149,13 +149,13 @@ ship.addEventListener('touchmove', event => {
 
 mars.addEventListener('click', () => {
   container.style.backgroundImage =
-    'url(https://alexejklass.github.io/img/mars.jpg)'
+    'url(https://alexejklass.github.io/dottaghedestroyer/img/mars.jpg)'
 })
 space.addEventListener('click', () => {
   container.style.backgroundImage =
-    'url(https://alexejklass.github.io/img/galaxy.jpg)'
+    'url(https://alexejklass.github.io/dottaghedestroyer/img/galaxy.jpg)'
 })
 earth.addEventListener('click', () => {
   container.style.backgroundImage =
-    'url(https://alexejklass.github.io/img/earth.jpg)'
+    'url(https://alexejklass.github.io/dottaghedestroyer/img/earth.jpg)'
 })
