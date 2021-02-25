@@ -14,14 +14,13 @@ stop.addEventListener('click', () => {
 })
 
 audio.play()
-audio.volume = 0.1
+audio.volume = 0.01
 
 let laserFunction = () => {
   lasersound.pause()
   lasersound.currentTime = 0
-
+  lasersound.volume = 0.01
   lasersound.play()
-  lasersound.volume = 0.3
   asteroid = document.querySelector('.asteroid')
   let positionShipX = ship.offsetLeft
   let positionShipY = ship.offsetTop
@@ -46,7 +45,7 @@ let laserFunction = () => {
         positionLaserX < positionAsteroidX + asteroid.offsetWidth / 2
       ) {
         crash.play()
-        crash.volume = 0.3
+        crash.volume = 0.01
         counter.textContent = Number(counter.innerHTML) + 1
         container.removeChild(asteroid)
         container.removeChild(laser)
@@ -64,21 +63,39 @@ let laserFunction = () => {
 }
 
 let createAsteroid = () => {
+  let asteroidShape = Math.floor(Math.random() * 3) + 1
+  let shape
+  switch (asteroidShape) {
+    case 1:
+      shape = '🌑'
+      break
+    case 2:
+      shape = '😈'
+      break
+    case 3:
+      shape = '🦂'
+      break
+    default:
+      break
+  }
+
   let asteroid = document.createElement('div')
+  let asteroidSize = Math.floor(Math.random() * 20) + 3
   asteroid.classList.add('asteroid')
-  asteroid.innerHTML = '🌑'
+  asteroid.innerHTML = shape
   asteroid.style.left =
     Math.floor(Math.random() * window.innerWidth - 20) + 20 + 'px'
+  asteroid.style.fontSize = asteroidSize + 'rem'
   container.insertAdjacentElement('beforeend', asteroid)
+  let randomNumber = Math.floor(Math.random() * 8) + 1
   let asteroidFall = setInterval(() => {
     let positionAsteroid = asteroid.offsetTop
-    let randomNumber = Math.floor(Math.random() * 3) + 1
     asteroid.style.top = positionAsteroid + randomNumber + 'px'
     if (positionAsteroid > window.innerHeight) {
       gameover.style.display = 'flex'
       clearInterval(asteroidFall)
     }
-  }, 8)
+  }, 20)
 }
 createAsteroid()
 let asteroid = document.querySelector('.asteroid')
