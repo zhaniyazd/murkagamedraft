@@ -7,6 +7,7 @@ let lasersound = document.querySelector('.lasersound')
 let crash = document.querySelector('.crash')
 let counter = document.querySelector('.counter')
 let stop = document.querySelector('.stop')
+let play = document.querySelector('.play')
 
 stop.addEventListener('click', () => {
   audio.pause()
@@ -118,8 +119,8 @@ document.addEventListener('click', event => {
 })
 
 gameover.addEventListener('click', () => {
-  gameover.style.display = 'none'
   container.removeChild(asteroid)
+  gameover.style.display = 'none'
   createAsteroid()
 })
 
