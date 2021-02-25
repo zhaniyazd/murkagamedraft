@@ -14,8 +14,10 @@ stop.addEventListener('click', () => {
   audio.currentTime = 0
 })
 window.addEventListener('DOMContentLoaded', () => {
-  audio.volume = 0.01
-  audio.play()
+  setTimeout(() => {
+    audio.volume = 0.01
+    audio.play()
+  }, 3000)
 })
 
 let laserFunction = () => {
