@@ -2,14 +2,17 @@ let container = document.querySelector('.container')
 let ship = document.querySelector('.ship')
 let fighter = container.querySelector('.fighter')
 let gameover = document.querySelector('.gameover')
-
-window.addEventListener('DOMContentLoaded', () => {
-  let audio = document.querySelector('.audio')
-
-  audio.play()
-})
+let audio = document.querySelector('.audio')
+let lasersound = document.querySelector('.lasersound')
+let crash = document.querySelector('.crash')
 
 let laserFunction = () => {
+  lasersound.pause()
+  lasersound.currentTime = 0
+  audio.play()
+  audio.volume = 0.1
+  lasersound.play()
+  lasersound.volume = 0.3
   asteroid = document.querySelector('.asteroid')
   let positionShipX = ship.offsetLeft
   let positionShipY = ship.offsetTop
@@ -33,6 +36,8 @@ let laserFunction = () => {
         positionLaserX > positionAsteroidX - asteroid.offsetWidth / 2 &&
         positionLaserX < positionAsteroidX + asteroid.offsetWidth / 2
       ) {
+        crash.play()
+        crash.volume = 0.3
         container.removeChild(asteroid)
         container.removeChild(laser)
         clearInterval(interval)
