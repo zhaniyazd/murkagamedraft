@@ -117,10 +117,24 @@ body {
   font-weight: bold;
   color: greenyellow;
   top: 20px;
-  left: 120px;
+  left: 180px;
   cursor: pointer;
 }
 .mars:hover {
+  color: rgb(255, 47, 116);
+}
+.earth {
+  position: absolute;
+  display: inline-block;
+  font-size: 2rem;
+  font-family: Calibri, sans-serif;
+  font-weight: bold;
+  color: greenyellow;
+  top: 20px;
+  left: 240px;
+  cursor: pointer;
+}
+.earth:hover {
   color: rgb(255, 47, 116);
 }
 

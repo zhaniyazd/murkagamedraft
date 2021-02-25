@@ -10,6 +10,7 @@ let stop = document.querySelector('.stop')
 let play = document.querySelector('.play')
 let space = document.querySelector('.space')
 let mars = document.querySelector('.mars')
+let earth = document.querySelector('.earth')
 
 stop.addEventListener('click', () => {
   audio.pause()
@@ -148,9 +149,13 @@ ship.addEventListener('touchmove', event => {
 
 mars.addEventListener('click', () => {
   container.style.backgroundImage =
-    'url(https://alexejklass.github.io/galaxy/img/mars.jpg)'
+    'url(https://alexejklass.github.io/img/mars.jpg)'
 })
 space.addEventListener('click', () => {
   container.style.backgroundImage =
-    'url(https://alexejklass.github.io/galaxy/img/galaxy.jpg)'
+    'url(https://alexejklass.github.io/img/galaxy.jpg)'
+})
+earth.addEventListener('click', () => {
+  container.style.backgroundImage =
+    'url(https://alexejklass.github.io/img/earth.jpg)'
 })
