@@ -8,6 +8,8 @@ let crash = document.querySelector('.crash')
 let counter = document.querySelector('.counter')
 let stop = document.querySelector('.stop')
 let play = document.querySelector('.play')
+let space = document.querySelector('.space')
+let mars = document.querySelector('.mars')
 
 stop.addEventListener('click', () => {
   audio.pause()
@@ -142,4 +144,13 @@ window.addEventListener('mousemove', event => {
 
 ship.addEventListener('touchmove', event => {
   ship.style.left = Math.floor(event.touches[0].clientX) + 'px'
+})
+
+mars.addEventListener('click', () => {
+  container.style.backgroundImage =
+    'url(https://alexejklass.github.io/galaxy/img/mars.jpg)'
+})
+space.addEventListener('click', () => {
+  container.style.backgroundImage =
+    'url(https://alexejklass.github.io/galaxy/img/galaxy.jpg)'
 })

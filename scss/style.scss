@@ -95,6 +95,34 @@ body {
 .stop:hover {
   color: rgb(255, 47, 116);
 }
+.space {
+  position: absolute;
+  display: inline-block;
+  font-size: 2rem;
+  font-family: Calibri, sans-serif;
+  font-weight: bold;
+  color: greenyellow;
+  top: 20px;
+  left: 100px;
+  cursor: pointer;
+}
+.space:hover {
+  color: rgb(255, 47, 116);
+}
+.mars {
+  position: absolute;
+  display: inline-block;
+  font-size: 2rem;
+  font-family: Calibri, sans-serif;
+  font-weight: bold;
+  color: greenyellow;
+  top: 20px;
+  left: 120px;
+  cursor: pointer;
+}
+.mars:hover {
+  color: rgb(255, 47, 116);
+}
 
 .gameover {
   font-family: Calibri, sans-serif;

@@ -122,6 +122,38 @@ body {
   color: #ff2f74;
 }
 
+.space {
+  position: absolute;
+  display: inline-block;
+  font-size: 2rem;
+  font-family: Calibri, sans-serif;
+  font-weight: bold;
+  color: greenyellow;
+  top: 20px;
+  left: 100px;
+  cursor: pointer;
+}
+
+.space:hover {
+  color: #ff2f74;
+}
+
+.mars {
+  position: absolute;
+  display: inline-block;
+  font-size: 2rem;
+  font-family: Calibri, sans-serif;
+  font-weight: bold;
+  color: greenyellow;
+  top: 20px;
+  left: 120px;
+  cursor: pointer;
+}
+
+.mars:hover {
+  color: #ff2f74;
+}
+
 .gameover {
   font-family: Calibri, sans-serif;
   font-style: italic;
