@@ -11,6 +11,17 @@ let play = document.querySelector('.play')
 let space = document.querySelector('.space')
 let mars = document.querySelector('.mars')
 let earth = document.querySelector('.earth')
+let lives = document.querySelector('.lives')
+
+let death = 3
+let stars = ['⭐', '⭐', '⭐']
+let showStars = () => {
+  lives.textContent = ''
+  stars.forEach(el => {
+    lives.textContent += el
+  })
+}
+showStars()
 
 stop.addEventListener('click', () => {
   audio.pause()
@@ -46,6 +57,8 @@ let laserFunction = () => {
     positionLaserX = laser.offsetLeft
     positionAsteroidY = asteroid.offsetTop + 10
     positionAsteroidX = asteroid.offsetLeft
+    let asteroidSizeChange = asteroid.style.fontSize
+    let asteroidRem = asteroidSizeChange.split('rem')
     if (positionLaserY < positionAsteroidY) {
       if (
         positionLaserX > positionAsteroidX - asteroid.offsetWidth / 2 &&
@@ -53,11 +66,17 @@ let laserFunction = () => {
       ) {
         crash.play()
         crash.volume = 0.01
-        counter.textContent = Number(counter.innerHTML) + 1
-        container.removeChild(asteroid)
-        container.removeChild(laser)
-        clearInterval(interval)
-        createAsteroid()
+        if (Number(asteroidRem[0]) > 8) {
+          asteroid.style.fontSize = asteroidRem[0] - 5 + 'rem'
+          container.removeChild(laser)
+          clearInterval(interval)
+        } else {
+          counter.textContent = Number(counter.innerHTML) + 1
+          container.removeChild(asteroid)
+          container.removeChild(laser)
+          clearInterval(interval)
+          createAsteroid()
+        }
       }
     }
 
@@ -107,8 +126,23 @@ let createAsteroid = () => {
   let asteroidFall = setInterval(() => {
     let positionAsteroid = asteroid.offsetTop
     asteroid.style.top = positionAsteroid + randomNumber + 'px'
-    if (positionAsteroid > window.innerHeight) {
-      gameover.style.display = 'flex'
+    console.log(positionAsteroid)
+    if (
+      positionAsteroid > window.innerHeight &&
+      positionAsteroid < window.innerHeight + randomNumber
+    ) {
+      if (death === 0) {
+        clearInterval(asteroidFall)
+        gameover.style.display = 'flex'
+        container.removeChild(asteroid)
+      } else {
+        clearInterval(asteroidFall)
+        death = death - 1
+        container.removeChild(asteroid)
+        stars.pop()
+        showStars()
+        createAsteroid()
+      }
     }
   }, 20)
 }
@@ -134,8 +168,11 @@ document.addEventListener('click', event => {
 })
 
 gameover.addEventListener('click', () => {
-  container.removeChild(asteroid)
   gameover.style.display = 'none'
+  counter.textContent = 0
+  death = 3
+  stars = ['⭐', '⭐', '⭐']
+  showStars()
   createAsteroid()
 })
 

@@ -225,6 +225,14 @@ body {
   cursor: pointer;
 }
 
+.lives {
+  position: absolute;
+  display: inline-block;
+  right: 100px;
+  top: 20px;
+  font-size: 4rem;
+}
+
 @media only screen and (max-width: 700px) {
   .gameover {
     width: 70%;
