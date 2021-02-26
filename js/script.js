@@ -44,6 +44,7 @@ let asteroidFall = (randomNumber, asteroid, laserFunction) => {
         gameover.style.display = 'flex'
         container.removeChild(asteroid)
         clearInterval(timer)
+        for (let i = 1; i < 1000; i++) window.clearInterval(i)
       } else if (death > 0) {
         death = death - 1
 
