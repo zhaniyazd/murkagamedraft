@@ -44,7 +44,6 @@ let asteroidFall = (randomNumber, asteroid, laserFunction) => {
         gameover.style.display = 'flex'
         container.removeChild(asteroid)
         clearInterval(timer)
-        for (let i = 1; i < 1000; i++) window.clearInterval(i)
       } else if (death > 0) {
         death = death - 1
 
@@ -171,11 +170,17 @@ document.addEventListener('click', event => {
 })
 
 gameover.addEventListener('click', () => {
+  for (let i = 1; i < 1000; i++) window.clearInterval(i)
+  lasers = document.querySelectorAll('.laser')
+  lasers.forEach(el => {
+    container.removeChild(el)
+  })
   gameover.style.display = 'none'
   counter.textContent = 0
   death = 3
   stars = ['⭐', '⭐', '⭐']
   showStars()
+
   createAsteroid()
 })
 
