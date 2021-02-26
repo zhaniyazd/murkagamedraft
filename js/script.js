@@ -34,7 +34,31 @@ window.addEventListener('DOMContentLoaded', () => {
   }, 3000)
 })
 
-let laserFunction = () => {
+let asteroidFall = (randomNumber, asteroid, laserFunction) => {
+  timer = setInterval(() => {
+    let positionAsteroid = asteroid.offsetTop
+    asteroid.style.top = positionAsteroid + randomNumber + 'px'
+    console.log(positionAsteroid)
+    if (positionAsteroid >= window.innerHeight) {
+      if (death === 0) {
+        gameover.style.display = 'flex'
+        container.removeChild(asteroid)
+        clearInterval(timer)
+      } else if (death > 0) {
+        death = death - 1
+
+        container.removeChild(asteroid)
+        window.clearInterval(timer)
+        window.clearInterval(laserFunction.interval)
+        stars.pop()
+        showStars()
+        createAsteroid()
+      }
+    }
+  }, 20)
+}
+
+let laserFunction = asteroidFall => {
   lasersound.pause()
   lasersound.currentTime = 0
   lasersound.volume = 0.01
@@ -50,9 +74,9 @@ let laserFunction = () => {
   laser.style.top = positionShipY - 90 + 'px'
   let positionLaserY = laser.offsetTop
   let positionLaserX = laser.offsetLeft
-  let positionAsteroidY = asteroid.offsetTop + 10
+  let positionAsteroidY = asteroid.offsetTop
   let positionAsteroidX = asteroid.offsetLeft
-  let interval = setInterval(() => {
+  interval = setInterval(() => {
     positionLaserY = laser.offsetTop
     positionLaserX = laser.offsetLeft
     positionAsteroidY = asteroid.offsetTop + 10
@@ -69,12 +93,11 @@ let laserFunction = () => {
         if (Number(asteroidRem[0]) > 8) {
           asteroid.style.fontSize = asteroidRem[0] - 5 + 'rem'
           container.removeChild(laser)
-          clearInterval(interval)
         } else {
           counter.textContent = Number(counter.innerHTML) + 1
           container.removeChild(asteroid)
           container.removeChild(laser)
-          clearInterval(interval)
+          window.clearInterval(asteroidFall.timer)
           createAsteroid()
         }
       }
@@ -82,7 +105,6 @@ let laserFunction = () => {
 
     laser.style.top = positionLaserY - 4 + 'px'
     if (positionLaserY < -10) {
-      clearInterval(interval)
       container.removeChild(laser)
     }
   }, 0.1)
@@ -123,28 +145,8 @@ let createAsteroid = () => {
   asteroid.style.fontSize = asteroidSize + 'rem'
   container.insertAdjacentElement('beforeend', asteroid)
   let randomNumber = Math.floor(Math.random() * 8) + 1
-  let asteroidFall = setInterval(() => {
-    let positionAsteroid = asteroid.offsetTop
-    asteroid.style.top = positionAsteroid + randomNumber + 'px'
-    console.log(positionAsteroid)
-    if (
-      positionAsteroid > window.innerHeight &&
-      positionAsteroid < window.innerHeight + randomNumber
-    ) {
-      if (death === 0) {
-        clearInterval(asteroidFall)
-        gameover.style.display = 'flex'
-        container.removeChild(asteroid)
-      } else {
-        clearInterval(asteroidFall)
-        death = death - 1
-        container.removeChild(asteroid)
-        stars.pop()
-        showStars()
-        createAsteroid()
-      }
-    }
-  }, 20)
+  clearInterval(asteroidFall.timer)
+  asteroidFall(randomNumber, asteroid, laserFunction)
 }
 createAsteroid()
 let asteroid = document.querySelector('.asteroid')
@@ -159,12 +161,12 @@ document.addEventListener('keydown', event => {
     ship.style.left = positionShipX + 40 + 'px'
   }
   if (event.keyCode === 32) {
-    laserFunction()
+    laserFunction(asteroidFall)
   }
 })
 
 document.addEventListener('click', event => {
-  laserFunction(event)
+  laserFunction(asteroidFall)
 })
 
 gameover.addEventListener('click', () => {
