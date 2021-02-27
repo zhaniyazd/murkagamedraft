@@ -4,13 +4,13 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 html {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 62.5%;
   /* 10px/16px = 62.5% -> 1rem = 10px */
 }
@@ -31,7 +31,7 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
-  background-image: url("https://alexejklass.github.io/galaxy/img/galaxy.jpg");
+  background-image: url('https://alexejklass.github.io/dottaghedestroyer/img/galaxy.jpg');
   background-size: 100% 100%;
 }
 
@@ -42,16 +42,16 @@ body {
   top: 90%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 6rem;
   padding-bottom: 10px;
   cursor: pointer;
@@ -69,7 +69,7 @@ body {
   width: 60px;
   height: 60px;
   -webkit-transform: translate(-17%, 0);
-          transform: translate(-17%, 0);
+  transform: translate(-17%, 0);
   display: inline-block;
   font-size: 20px;
 }
@@ -82,16 +82,16 @@ body {
   top: -30px;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   font-size: 6rem;
   padding-bottom: 10px;
 }
@@ -184,15 +184,15 @@ body {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-transition: all 0.01s linear;
   transition: all 0.01s linear;
   font-size: 6rem;
@@ -243,14 +243,14 @@ body {
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     display: none;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-transition: all 0.01s linear;
     transition: all 0.01s linear;
     font-size: 2rem;
