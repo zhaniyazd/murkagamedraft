@@ -1,0 +1,24 @@
+{
+  "name": "igs-commander",
+  "version": "1.0.0",
+  "description": "A space destroyer game built with vanilla JS",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexejklass/igs-commander.git"
+  },
+  "keywords": [
+    "igs",
+    "commander",
+    "js"
+  ],
+  "author": "Alexej",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexejklass/igs-commander/issues"
+  },
+  "homepage": "https://github.com/alexejklass/igs-commander#readme"
+}

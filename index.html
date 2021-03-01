@@ -5,23 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js" defer></script>
-    <title>Starter Project</title>
+    <title>IGS Commander</title>
   </head>
   <body>
+    <video autoplay muted loop class="videoContainer">
+      <source src="video/earth.mp4" type="video/mp4" />
+    </video>
     <div class="container">
       <div class="ship">
-        <img src="img/fighter.svg" alt="" class="fighter" />
+        <img
+          src="img/fighter.png"
+          alt="fighter"
+          class="fighter"
+          draggable="false"
+        />
+        <div class="flameContainer">
+          <div class="fighterFlame">
+            <div class="red flame"></div>
+            <div class="orange flame"></div>
+            <div class="yellow flame"></div>
+            <div class="white flame"></div>
+          </div>
+        </div>
       </div>
       <div class="gameover">
         GAME OVER
         <div class="play">▶</div>
       </div>
       <div class="counter">0</div>
-      <div class="stop">STOP🔉</div>
-      <div class="space">Galaxy</div>
-      <div class="mars">Mars</div>
-      <div class="earth">Earth</div>
-      <div class="lifes"></div>
+      <div class="toggleMusic">
+        <img src="img/speaker.svg" alt="toggle music" class="musicButton" />
+        <span class="muteSpeaker"></span>
+      </div>
+      <div class="backgroundContainer">
+        <img
+          src="img/planet-earth.svg"
+          alt="planet-earth"
+          class="planet earthImg"
+        />
+        <img
+          src="img/planet-mars.svg"
+          alt="planet-mars"
+          class="planet marsImg"
+        />
+        <img src="img/milky-way.svg" alt="milky-way" class="planet spaceImg" />
+      </div>
+      <div class="lives"></div>
     </div>
     <audio class="audio">
       <source src="music/bruder.mp3" type="audio/mpeg" />
@@ -32,8 +61,5 @@
     <audio class="crash">
       <source src="music/crash.wav" type="audio/mpeg" />
     </audio>
-    <video autoplay muted loop class="videoContainer">
-      <source src="video/earth.mp4" type="video/mp4" />
-    </video>
   </body>
 </html>

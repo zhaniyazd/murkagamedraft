@@ -59,19 +59,10 @@ let asteroidFall = (randomNumber, asteroid, laserFunction) => {
 }
 
 let laserFunction = asteroidFall => {
-  lasersound.pause()
-  lasersound.currentTime = 0
-  lasersound.volume = 0.01
-  lasersound.play()
   let asteroid = document.querySelector('.asteroid')
   let positionShipX = ship.offsetLeft
   let positionShipY = ship.offsetTop
-  let laser = document.createElement('div')
-  laser.classList.add('laser')
-  laser.innerHTML = '🔥'
-  container.insertAdjacentElement('beforeend', laser)
-  laser.style.left = positionShipX + 'px'
-  laser.style.top = positionShipY - 90 + 'px'
+
   let positionLaserY = laser.offsetTop
   let positionLaserX = laser.offsetLeft
   let positionAsteroidY = asteroid.offsetTop

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: HalfTone;
+  src: url(/fonts/TarrgetAcademyItalic.otf);
+}
+
 *,
 *::before,
 *::after {
@@ -12,17 +17,12 @@ html {
   font-size: 62.5%; /* 10px/16px = 62.5% -> 1rem = 10px */
 }
 ::selection {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: HalfTone, sans-serif;
   overflow: hidden;
-}
-
-.container {
-  width: 100vw;
-  height: 100vh;
 }
 
 .videoContainer {
@@ -31,123 +31,189 @@ body {
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  z-index: -1;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
 }
 
 .ship {
-  background-color: rgba(0, 60, 255, 0);
-  border-radius: 100px;
   position: absolute;
-  top: 90%;
+  top: 86%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 6rem;
-  padding-bottom: 10px;
-  cursor: pointer;
 }
 
 .fighter {
-  width: 12rem;
-  height: 12rem;
+  width: 14rem;
+  height: 14rem;
+  position: relative;
+  z-index: 100;
+}
+
+.flameContainer {
+  position: absolute;
+  z-index: 99;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-34%, 110%) rotate(180deg);
+}
+
+.fighterFlame {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transform-origin: center bottom;
+  animation-name: flicker;
+  animation-duration: 3ms;
+  animation-delay: 200ms;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+  transform: rotate(180deg);
+}
+
+.flame {
+  bottom: 0;
+  position: absolute;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  transform: rotate(-45deg) scale(1.5, 1.5);
+}
+
+.yellow {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  box-shadow: 0px 0px 9px 4px gold;
+}
+
+.orange {
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background: orange;
+  box-shadow: 0px 0px 9px 4px orange;
+}
+
+.red {
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background: OrangeRed;
+  box-shadow: 0px 0px 5px 4px #0025ff;
+}
+
+.white {
+  left: 15px;
+  bottom: -4px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  box-shadow: 0px 0px 9px 4px white;
+}
+
+.circle {
+  border-radius: 50%;
+  position: absolute;
+}
+
+@keyframes flicker {
+  0% {
+    transform: rotate(-1deg);
+  }
+  20% {
+    transform: rotate(1deg);
+  }
+  40% {
+    transform: rotate(-1deg);
+  }
+  60% {
+    transform: rotate(1deg) scaleY(1.04);
+  }
+  80% {
+    transform: rotate(-2deg) scaleY(0.92);
+  }
+  100% {
+    transform: rotate(1deg);
+  }
 }
 
 .laser {
   position: absolute;
-  left: 50%;
-  top: -15%;
-  width: 60px;
-  height: 60px;
-  transform: translate(-17%, 0);
   display: inline-block;
-  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  transition: top 1.4s linear;
 }
 .asteroid {
-  cursor: pointer;
-  max-width: 100%;
-  max-height: 100%;
   position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 6rem;
-  padding-bottom: 10px;
+  top: -1rem;
+  height: 4rem;
+  width: 4rem;
+  transition: height 0.3s linear, top 6s linear;
+  animation: rotation 16s linear infinite;
 }
 
 .counter {
   position: absolute;
   display: inline-block;
-  font-size: 6rem;
-  color: greenyellow;
-  top: 20px;
-  right: 26px;
-  font-weight: bold;
+  font-size: 7rem;
+  color: rgb(50, 205, 159);
+  top: 60px;
+  right: 58px;
 }
-.stop {
+.toggleMusic {
   position: absolute;
-  display: inline-block;
-  font-size: 2rem;
-  font-family: Calibri, sans-serif;
-  font-weight: bold;
-  color: greenyellow;
   top: 20px;
-  left: 20px;
+  left: 30px;
   cursor: pointer;
 }
-.stop:hover {
-  color: rgb(255, 47, 116);
+.muteSpeaker {
+  position: absolute;
+  display: inline-block;
+  border-radius: 1rem;
+  left: -10px;
+  top: 17px;
+  width: 6.2rem;
+  height: 0.3rem;
+  opacity: 0;
+  background-color: rgb(245, 42, 42);
+  transform: rotate(45deg);
+  transition: opacity 0.5s ease-out;
 }
-.space {
+.musicButton {
+  width: 3.9rem;
+  height: 3.9rem;
+}
+
+.backgroundContainer {
   position: absolute;
   display: inline-block;
   font-size: 2rem;
-  font-family: Calibri, sans-serif;
   font-weight: bold;
   color: greenyellow;
   top: 20px;
   left: 100px;
   cursor: pointer;
 }
-.space:hover {
-  color: rgb(255, 47, 116);
+.backgroundContainer img {
+  transition: transform 0.3s ease;
 }
-.mars {
-  position: absolute;
-  display: inline-block;
-  font-size: 2rem;
-  font-family: Calibri, sans-serif;
-  font-weight: bold;
-  color: greenyellow;
-  top: 20px;
-  left: 180px;
-  cursor: pointer;
+.backgroundContainer img:hover {
+  transform: scale(1.2);
 }
-.mars:hover {
-  color: rgb(255, 47, 116);
-}
-.earth {
-  position: absolute;
-  display: inline-block;
-  font-size: 2rem;
-  font-family: Calibri, sans-serif;
-  font-weight: bold;
-  color: greenyellow;
-  top: 20px;
-  left: 240px;
-  cursor: pointer;
-}
-.earth:hover {
-  color: rgb(255, 47, 116);
+
+.planet {
+  height: 4rem;
+  width: 4rem;
+  margin-right: 1rem;
 }
 
 .gameover {
-  font-family: Calibri, sans-serif;
-  font-style: italic;
   font-weight: bold;
   text-shadow: 2px 2px #e5ff00;
   cursor: pointer;
@@ -188,31 +254,23 @@ body {
   cursor: pointer;
 }
 
-.lifes {
+.lives {
   position: absolute;
   display: inline-block;
-  right: 100px;
+  right: 30px;
   top: 20px;
-  font-size: 4rem;
 }
 
-@media only screen and (max-width: 700px) {
-  .gameover {
-    width: 70%;
-    height: 20%;
-    background-color: rgba(255, 38, 0, 0.657);
-    border-radius: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.01s linear;
-    font-size: 2rem;
-    z-index: 100;
-    color: rgb(24, 53, 219);
-    transition: all 0.5s ease-in;
+.star {
+  height: 4rem;
+  margin-left: 0.5rem;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

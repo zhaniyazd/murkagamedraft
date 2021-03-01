@@ -1,3 +1,8 @@
+@font-face {
+  font-family: HalfTone;
+  src: url(/fonts/TarrgetAcademyItalic.otf);
+}
+
 *,
 *::before,
 *::after {
@@ -24,13 +29,8 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: HalfTone, sans-serif;
   overflow: hidden;
-}
-
-.container {
-  width: 100vw;
-  height: 100vh;
 }
 
 .videoContainer {
@@ -39,101 +39,226 @@ body {
   bottom: 0;
   min-width: 100%;
   min-height: 100%;
-  z-index: -1;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
 }
 
 .ship {
-  background-color: rgba(0, 60, 255, 0);
-  border-radius: 100px;
   position: absolute;
-  top: 90%;
+  top: 86%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 6rem;
-  padding-bottom: 10px;
-  cursor: pointer;
 }
 
 .fighter {
-  width: 12rem;
-  height: 12rem;
+  width: 14rem;
+  height: 14rem;
+  position: relative;
+  z-index: 100;
+}
+
+.flameContainer {
+  position: absolute;
+  z-index: 99;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-34%, 110%) rotate(180deg);
+          transform: translate(-34%, 110%) rotate(180deg);
+}
+
+.fighterFlame {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+  -webkit-animation-name: flicker;
+          animation-name: flicker;
+  -webkit-animation-duration: 3ms;
+          animation-duration: 3ms;
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.flame {
+  bottom: 0;
+  position: absolute;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%;
+  -webkit-transform: rotate(-45deg) scale(1.5, 1.5);
+          transform: rotate(-45deg) scale(1.5, 1.5);
+}
+
+.yellow {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  -webkit-box-shadow: 0px 0px 9px 4px gold;
+          box-shadow: 0px 0px 9px 4px gold;
+}
+
+.orange {
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  background: orange;
+  -webkit-box-shadow: 0px 0px 9px 4px orange;
+          box-shadow: 0px 0px 9px 4px orange;
+}
+
+.red {
+  left: 5px;
+  width: 30px;
+  height: 30px;
+  background: OrangeRed;
+  -webkit-box-shadow: 0px 0px 5px 4px #0025ff;
+          box-shadow: 0px 0px 5px 4px #0025ff;
+}
+
+.white {
+  left: 15px;
+  bottom: -4px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  -webkit-box-shadow: 0px 0px 9px 4px white;
+          box-shadow: 0px 0px 9px 4px white;
+}
+
+.circle {
+  border-radius: 50%;
+  position: absolute;
+}
+
+@-webkit-keyframes flicker {
+  0% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+  }
+  20% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+  40% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: rotate(1deg) scaleY(1.04);
+            transform: rotate(1deg) scaleY(1.04);
+  }
+  80% {
+    -webkit-transform: rotate(-2deg) scaleY(0.92);
+            transform: rotate(-2deg) scaleY(0.92);
+  }
+  100% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+}
+
+@keyframes flicker {
+  0% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+  }
+  20% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
+  40% {
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+  }
+  60% {
+    -webkit-transform: rotate(1deg) scaleY(1.04);
+            transform: rotate(1deg) scaleY(1.04);
+  }
+  80% {
+    -webkit-transform: rotate(-2deg) scaleY(0.92);
+            transform: rotate(-2deg) scaleY(0.92);
+  }
+  100% {
+    -webkit-transform: rotate(1deg);
+            transform: rotate(1deg);
+  }
 }
 
 .laser {
   position: absolute;
-  left: 50%;
-  top: -15%;
-  width: 60px;
-  height: 60px;
-  -webkit-transform: translate(-17%, 0);
-          transform: translate(-17%, 0);
   display: inline-block;
-  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  -webkit-transition: top 1.4s linear;
+  transition: top 1.4s linear;
 }
 
 .asteroid {
-  cursor: pointer;
-  max-width: 100%;
-  max-height: 100%;
   position: absolute;
-  top: -30px;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 6rem;
-  padding-bottom: 10px;
+  top: -1rem;
+  height: 4rem;
+  width: 4rem;
+  -webkit-transition: height 0.3s linear, top 6s linear;
+  transition: height 0.3s linear, top 6s linear;
+  -webkit-animation: rotation 16s linear infinite;
+          animation: rotation 16s linear infinite;
 }
 
 .counter {
   position: absolute;
   display: inline-block;
-  font-size: 6rem;
-  color: greenyellow;
-  top: 20px;
-  right: 26px;
-  font-weight: bold;
+  font-size: 7rem;
+  color: #32cd9f;
+  top: 60px;
+  right: 58px;
 }
 
-.stop {
+.toggleMusic {
   position: absolute;
-  display: inline-block;
-  font-size: 2rem;
-  font-family: Calibri, sans-serif;
-  font-weight: bold;
-  color: greenyellow;
   top: 20px;
-  left: 20px;
+  left: 30px;
   cursor: pointer;
 }
 
-.stop:hover {
-  color: #ff2f74;
+.muteSpeaker {
+  position: absolute;
+  display: inline-block;
+  border-radius: 1rem;
+  left: -10px;
+  top: 17px;
+  width: 6.2rem;
+  height: 0.3rem;
+  opacity: 0;
+  background-color: #f52a2a;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: opacity 0.5s ease-out;
+  transition: opacity 0.5s ease-out;
 }
 
-.space {
+.musicButton {
+  width: 3.9rem;
+  height: 3.9rem;
+}
+
+.backgroundContainer {
   position: absolute;
   display: inline-block;
   font-size: 2rem;
-  font-family: Calibri, sans-serif;
   font-weight: bold;
   color: greenyellow;
   top: 20px;
@@ -141,45 +266,25 @@ body {
   cursor: pointer;
 }
 
-.space:hover {
-  color: #ff2f74;
+.backgroundContainer img {
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
 }
 
-.mars {
-  position: absolute;
-  display: inline-block;
-  font-size: 2rem;
-  font-family: Calibri, sans-serif;
-  font-weight: bold;
-  color: greenyellow;
-  top: 20px;
-  left: 180px;
-  cursor: pointer;
+.backgroundContainer img:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
-.mars:hover {
-  color: #ff2f74;
-}
-
-.earth {
-  position: absolute;
-  display: inline-block;
-  font-size: 2rem;
-  font-family: Calibri, sans-serif;
-  font-weight: bold;
-  color: greenyellow;
-  top: 20px;
-  left: 240px;
-  cursor: pointer;
-}
-
-.earth:hover {
-  color: #ff2f74;
+.planet {
+  height: 4rem;
+  width: 4rem;
+  margin-right: 1rem;
 }
 
 .gameover {
-  font-family: Calibri, sans-serif;
-  font-style: italic;
   font-weight: bold;
   text-shadow: 2px 2px #e5ff00;
   cursor: pointer;
@@ -232,39 +337,37 @@ body {
   cursor: pointer;
 }
 
-.lifes {
+.lives {
   position: absolute;
   display: inline-block;
-  right: 100px;
+  right: 30px;
   top: 20px;
-  font-size: 4rem;
 }
 
-@media only screen and (max-width: 700px) {
-  .gameover {
-    width: 70%;
-    height: 20%;
-    background-color: rgba(255, 38, 0, 0.657);
-    border-radius: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    display: none;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-transition: all 0.01s linear;
-    transition: all 0.01s linear;
-    font-size: 2rem;
-    z-index: 100;
-    color: #1835db;
-    -webkit-transition: all 0.5s ease-in;
-    transition: all 0.5s ease-in;
+.star {
+  height: 4rem;
+  margin-left: 0.5rem;
+}
+
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 /*# sourceMappingURL=style.css.map */
