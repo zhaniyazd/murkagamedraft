@@ -82,10 +82,16 @@ let laserMovement = laser => {
         crash.play()
         crash.volume = 0.01
         removeLaser(laser)
-        container.removeChild(asteroidElement)
-        setCounter()
-        asteroidFunction()
-        clearInterval(laserInterval)
+        //Make asteroid smaller when hit
+        if (asteroidElement.offsetWidth > 80) {
+          asteroidElement.style.width = asteroidElement.offsetWidth - 40 + 'px'
+          asteroidElement.style.height = asteroidElement.offsetWidth - 40 + 'px'
+        } else {
+          container.removeChild(asteroidElement)
+          setCounter()
+          asteroidFunction()
+          clearInterval(laserInterval)
+        }
       }
     }
   }, 10)
@@ -112,7 +118,6 @@ let laserShot = () => {
 //Set the asteroid position
 let setAsteroidPosition = asteroid => {
   let maxWidth = window.innerWidth - 100
-  console.log(maxWidth)
   asteroid.style.left = Math.floor(Math.random() * maxWidth) + 60 + 'px'
   setTimeout(() => {
     asteroid.style.top = window.innerHeight + 100 + 'px'
@@ -122,7 +127,7 @@ let setAsteroidPosition = asteroid => {
 //Set asteroid shape
 let setAsteroidShape = asteroid => {
   asteroidShapeNumber = Math.floor(Math.random() * 6) + 1
-  asteroidShapeSize = Math.floor(Math.random() * 14) + 4
+  asteroidShapeSize = Math.floor(Math.random() * 16) + 4
   switch (asteroidShapeNumber) {
     case 1:
       asteroidShape = 'img/asteroid-purple.svg'
