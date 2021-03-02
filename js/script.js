@@ -26,11 +26,9 @@ let laserY
 let asteroidX
 let asteroidY
 let stars = 3
-let deaths = 0
 
 //Display stars
 let showStars = () => {
-  stars = stars - deaths
   lives.innerHTML = ''
   while (stars > 0) {
     star = document.createElement('img')
@@ -122,10 +120,11 @@ let laserShot = () => {
 
 //Set the asteroid position
 let setAsteroidPosition = asteroid => {
-  let maxWidth = window.innerWidth - 100
-  asteroid.style.left = Math.floor(Math.random() * maxWidth) + 60 + 'px'
+  let maxWidth = container.offsetWidth - asteroid.offsetWidth
+  let randomPosition = Math.floor(Math.random() * (maxWidth - 1) + 1)
+  asteroid.style.left = randomPosition + 'px'
   setTimeout(() => {
-    asteroid.style.top = window.innerHeight + 100 + 'px'
+    asteroid.style.top = window.innerHeight + asteroid.offsetHeight + 'px'
   }, 1)
 }
 
@@ -160,17 +159,37 @@ let setAsteroidShape = asteroid => {
   asteroid.style.width = `${asteroidShapeSize}rem`
 }
 
-// Remove asteroid
-let removeAsteroid = () => {
-  console.log('inteval')
+//Gameover Popup
+let gameoverFunc = () => {
+  gameover.style.display = 'flex'
+}
+
+//Removes stars
+let removeStars = () => {
+  if (stars > 1) {
+    lives.removeChild(star)
+    stars--
+    console.log(stars)
+  } else {
+    lives.removeChild(star)
+    gameoverFunc()
+  }
+}
+
+let timeoutFunc = () => {
   if (asteroidElement.offsetTop >= window.innerHeight) {
-    asteroidElement.style.top = '-100px'
     container.removeChild(asteroidElement)
     star = document.querySelector('.star')
-    if (star) lives.removeChild(star)
+    removeStars()
     asteroidFunction()
-    console.log('hello')
+    return
   }
+  setTimeout(timeoutFunc, 1000)
+}
+
+// Remove asteroid
+let removeAsteroid = () => {
+  setTimeout(timeoutFunc, 2000)
 }
 
 //Create asteroid
@@ -184,9 +203,10 @@ let createAsteroid = () => {
 //Full asteroid functionality
 let asteroidFunction = () => {
   let asteroid = createAsteroid()
-  setAsteroidPosition(asteroid)
-  setAsteroidShape(asteroid)
   container.append(asteroid)
+  setAsteroidShape(asteroid)
+  setAsteroidPosition(asteroid)
+  removeAsteroid()
 }
 
 showStars()
@@ -196,9 +216,6 @@ asteroidFunction()
 let musicPlay = setTimeout(() => {
   audio.play()
   audio.volume = 0.01
-  setInterval(() => {
-    removeAsteroid()
-  }, 1000)
 }, 1000)
 
 //Mouse laser shot event listener
