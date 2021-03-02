@@ -154,7 +154,7 @@ body {
   top: -1rem;
   height: 4rem;
   width: 4rem;
-  transition: height 0.01s linear, width 0.01s linear, top 6s linear;
+  transition: top 6s linear;
   animation: rotation 16s linear infinite;
 }
 

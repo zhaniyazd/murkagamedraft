@@ -15,6 +15,7 @@ let space = document.querySelector('.spaceImg')
 let lives = document.querySelector('.lives')
 let videoContainer = document.querySelector('.videoContainer')
 let videoSource = videoContainer.querySelector('source')
+let star
 
 let asteroidElement
 let asteroidShapeNumber
@@ -25,17 +26,20 @@ let laserY
 let asteroidX
 let asteroidY
 let stars = 3
+let deaths = 0
 
 //Display stars
 let showStars = () => {
-  lives.textContent = ''
+  stars = stars - deaths
+  lives.innerHTML = ''
   while (stars > 0) {
-    let star = document.createElement('img')
+    star = document.createElement('img')
     star.setAttribute('src', 'img/star.svg')
     star.classList.add('star')
     lives.append(star)
     stars--
   }
+  stars = 3
 }
 
 let setCounter = () => {
@@ -79,14 +83,15 @@ let laserMovement = laser => {
         laser.offsetLeft <
           asteroidElement.offsetLeft + asteroidElement.offsetWidth
       ) {
-        crash.play()
-        crash.volume = 0.01
         removeLaser(laser)
         //Make asteroid smaller when hit
         if (asteroidElement.offsetWidth > 80) {
           asteroidElement.style.width = asteroidElement.offsetWidth - 40 + 'px'
-          asteroidElement.style.height = asteroidElement.offsetWidth - 40 + 'px'
+          asteroidElement.style.height =
+            asteroidElement.offsetHeight - 40 + 'px'
         } else {
+          crash.play()
+          crash.volume = 0.01
           container.removeChild(asteroidElement)
           setCounter()
           asteroidFunction()
@@ -158,12 +163,15 @@ let setAsteroidShape = asteroid => {
 //Remove asteroid
 let removeAsteroid = asteroid => {
   let asteroidFall = setInterval(() => {
-    if (asteroid.offsetTop >= window.innerHeight + 100) {
+    if (asteroid.offsetTop > window.innerHeight + 99) {
       container.removeChild(asteroid)
       clearInterval(asteroidFall)
+      star = document.querySelector('.star')
+      lives.removeChild(star)
+      console.log('hello')
       asteroidFunction()
     }
-  }, 10)
+  }, 100)
 }
 
 //Create asteroid
@@ -203,7 +211,6 @@ toggleMusic.addEventListener('click', () => {
     muteSpeaker.style.opacity = '0'
     return audio.play()
   }
-  console.log('test')
   audio.pause()
   audio.currentTime = 0
   muteSpeaker.style.opacity = '1'
