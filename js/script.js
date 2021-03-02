@@ -160,18 +160,17 @@ let setAsteroidShape = asteroid => {
   asteroid.style.width = `${asteroidShapeSize}rem`
 }
 
-//Remove asteroid
-let removeAsteroid = asteroid => {
-  let asteroidFall = setInterval(() => {
-    if (asteroid.offsetTop > window.innerHeight + 99) {
-      container.removeChild(asteroid)
-      clearInterval(asteroidFall)
-      star = document.querySelector('.star')
-      lives.removeChild(star)
-      console.log('hello')
-      asteroidFunction()
-    }
-  }, 100)
+// Remove asteroid
+let removeAsteroid = () => {
+  console.log('inteval')
+  if (asteroidElement.offsetTop >= window.innerHeight) {
+    asteroidElement.style.top = '-100px'
+    container.removeChild(asteroidElement)
+    star = document.querySelector('.star')
+    if (star) lives.removeChild(star)
+    asteroidFunction()
+    console.log('hello')
+  }
 }
 
 //Create asteroid
@@ -185,10 +184,9 @@ let createAsteroid = () => {
 //Full asteroid functionality
 let asteroidFunction = () => {
   let asteroid = createAsteroid()
+  setAsteroidPosition(asteroid)
   setAsteroidShape(asteroid)
   container.append(asteroid)
-  setAsteroidPosition(asteroid)
-  removeAsteroid(asteroid)
 }
 
 showStars()
@@ -198,6 +196,9 @@ asteroidFunction()
 let musicPlay = setTimeout(() => {
   audio.play()
   audio.volume = 0.01
+  setInterval(() => {
+    removeAsteroid()
+  }, 1000)
 }, 1000)
 
 //Mouse laser shot event listener
