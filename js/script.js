@@ -130,14 +130,14 @@ let setAsteroidPosition = asteroid => {
 
 //Set asteroid shape
 let setAsteroidShape = asteroid => {
-  asteroidShapeNumber = Math.floor(Math.random() * 6) + 1
+  asteroidShapeNumber = Math.floor(Math.random() * 9) + 1
   asteroidShapeSize = Math.floor(Math.random() * 16) + 4
   switch (asteroidShapeNumber) {
     case 1:
       asteroidShape = 'img/asteroid-purple.svg'
       break
     case 2:
-      asteroidShape = 'img/meteorite.svg'
+      asteroidShape = 'img/green-asteroid.svg'
       break
     case 3:
       asteroidShape = 'img/orange-meteorite.svg'
@@ -150,6 +150,15 @@ let setAsteroidShape = asteroid => {
       break
     case 6:
       asteroidShape = 'img/meteorite-white.svg'
+      break
+    case 7:
+      asteroidShape = 'img/lightorange-asteroid.svg'
+      break
+    case 8:
+      asteroidShape = 'img/rocky-asteroid.svg'
+      break
+    case 9:
+      asteroidShape = 'img/purple-asteroid.svg'
       break
     default:
       break
