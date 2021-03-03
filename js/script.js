@@ -41,7 +41,7 @@ let showStars = () => {
 }
 
 let setCounter = () => {
-  counter.textContent = Number(counter.innerHTML) + 1
+  counter.textContent = parseInt(counter.textContent) + 1
 }
 
 //Plays laser sound
@@ -179,8 +179,10 @@ let removeStars = () => {
     lives.removeChild(star)
     stars--
     console.log(stars)
-  } else {
+  } else if (stars === 1) {
+    console.log('egual 1')
     lives.removeChild(star)
+    stars--
     gameoverFunc()
   }
 }
@@ -193,7 +195,7 @@ let timeoutFunc = () => {
     asteroidFunction()
     return
   }
-  setTimeout(timeoutFunc, 1000)
+  return setTimeout(timeoutFunc, 1000)
 }
 
 // Remove asteroid
