@@ -32,7 +32,7 @@ let showStars = () => {
   lives.innerHTML = ''
   while (stars > 0) {
     star = document.createElement('img')
-    star.setAttribute('src', 'img/star.svg')
+    star.setAttribute('src', 'img/paw.png')
     star.classList.add('star')
     lives.append(star)
     stars--
@@ -48,7 +48,7 @@ let setCounter = () => {
 let laserSound = () => {
   lasersound.pause()
   lasersound.currentTime = 0
-  lasersound.volume = 0.01
+  lasersound.volume = 0.1
   lasersound.play()
 }
 
@@ -89,7 +89,7 @@ let laserMovement = laser => {
             asteroidElement.offsetHeight - 40 + 'px'
         } else {
           crash.play()
-          crash.volume = 0.01
+          crash.volume = 0.1
           container.removeChild(asteroidElement)
           setCounter()
           asteroidFunction()
@@ -106,8 +106,8 @@ let createLaser = () => {
   laser.classList.add('laser')
   laser.setAttribute('src', 'img/bullet.svg')
   container.insertAdjacentElement('beforeend', laser)
-  laser.style.left = ship.offsetLeft - 14 + 'px'
-  laser.style.top = ship.offsetTop - 100 + 'px'
+  laser.style.left = ship.offsetLeft - 16 + 'px'
+  laser.style.top = ship.offsetTop - 90 + 'px'
   laserMovement(laser)
 }
 
@@ -171,6 +171,9 @@ let setAsteroidShape = asteroid => {
 //Gameover Popup
 let gameoverFunc = () => {
   gameover.style.display = 'flex'
+  play.addEventListener('click', e => {
+    location.reload()
+  })
 }
 
 //Removes stars
@@ -226,7 +229,7 @@ asteroidFunction()
 //Music playback start after 3 seconds
 let musicPlay = setTimeout(() => {
   audio.play()
-  audio.volume = 0.01
+  audio.volume = 0.1
 }, 1000)
 
 //Mouse laser shot event listener
