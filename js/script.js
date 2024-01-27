@@ -246,6 +246,7 @@ if (nameStorage) {
     playerName = playerInput.value
     if (playerName) {
       localStorage.setItem('name', playerName)
+      playerLabel.textContent = nameStorage
       playerNameContainer.style.display = 'none'
       asteroidFunction()
       //Mouse laser shot event listener
