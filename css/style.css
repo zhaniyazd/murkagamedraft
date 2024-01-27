@@ -47,6 +47,7 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .ship {
@@ -243,6 +244,13 @@ body {
   right: 58px;
 }
 
+@media screen and (max-width: 600px) {
+  .playerLabel {
+    font-size: 2rem;
+    bottom: 10px;
+    right: 10px;
+  }
+}
 .toggleMusic {
   position: absolute;
   bottom: 20px;
