@@ -4,9 +4,10 @@
 
 Murka Sensei Commander is an Open Source space game created with only Javascript.
 
-The game was created for the Discord Community Murka Sensei
-https://murka-sensei.ru/
-https://discord.gg/SgJg3DFQYk
+The game was created for the Discord Community Murka Sensei <br/>
+https://alexejdeveloper.github.io/murka-sensei-commander/ <br/>
+https://murka-sensei.ru/ <br/>
+https://discord.gg/SgJg3DFQYk <br/>
 
 ## Usage
 
