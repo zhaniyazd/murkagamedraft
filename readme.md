@@ -1,4 +1,4 @@
-<img src="https://github.com/alexejklass/alexejdeveloper/murka-sensei-commander/blob/master/img/MurkaHeroText.jpg?raw=true" alt="profile" />
+<img src="https://github.com/alexejdeveloper/murka-sensei-commander/blob/master/img/MurkaHeroText.jpg?raw=true" alt="profile" />
 
 # Murka Sensei Commander
 
