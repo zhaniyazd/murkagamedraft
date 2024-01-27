@@ -1,4 +1,9 @@
 let container = document.querySelector('.container')
+let playerNameContainer = document.querySelector('.playerNameContainer')
+let playerInput = document.querySelector('.playerInput')
+let playerName = ''
+let playerPlay = document.querySelector('.playerPlay')
+let playerLabel = document.querySelector('.playerLabel')
 let ship = document.querySelector('.ship')
 let gameover = document.querySelector('.gameover')
 let audio = document.querySelector('.audio')
@@ -21,8 +26,6 @@ let asteroidElement
 let asteroidShapeNumber
 let asteroidShapeSize
 let asteroidShape
-let laserX
-let laserY
 let asteroidX
 let asteroidY
 let stars = 3
@@ -68,7 +71,8 @@ let removeLasers = () => {
 
 //Laser movement
 let laserMovement = laser => {
-  laser.style.top = laser.offsetTop - window.innerHeight + 'px'
+  // laser.style.top = laser.offsetTop - window.innerHeight + 'px'
+  laser.style.top = window.innerHeight + 'px'
   let laserInterval = setInterval(() => {
     if (
       laser.offsetTop <=
@@ -106,8 +110,8 @@ let createLaser = () => {
   laser.classList.add('laser')
   laser.setAttribute('src', 'img/bullet.svg')
   container.insertAdjacentElement('beforeend', laser)
-  laser.style.left = ship.offsetLeft - 16 + 'px'
-  laser.style.top = ship.offsetTop - 90 + 'px'
+  laser.style.left = ship.offsetLeft + 40 + 'px'
+  // laser.style.top = ship.offsetTop + 110 + 'px'
   laserMovement(laser)
 }
 
@@ -124,7 +128,7 @@ let setAsteroidPosition = asteroid => {
   let randomPosition = Math.floor(Math.random() * (maxWidth - 1) + 1)
   asteroid.style.left = randomPosition + 'px'
   setTimeout(() => {
-    asteroid.style.top = window.innerHeight + asteroid.offsetHeight + 'px'
+    asteroid.style.bottom = window.innerHeight + asteroid.offsetHeight + 'px'
   }, 1)
 }
 
@@ -190,20 +194,24 @@ let removeStars = () => {
   }
 }
 
-let timeoutFunc = () => {
-  if (asteroidElement.offsetTop >= window.innerHeight) {
-    container.removeChild(asteroidElement)
-    star = document.querySelector('.star')
-    removeStars()
-    asteroidFunction()
-    return
+let timeoutFunc = asteroid => {
+  let asteroidPosition = asteroid.offsetTop
+  if (asteroidPosition <= -80) {
+    if (container.contains(asteroid)) {
+      container.removeChild(asteroid)
+
+      star = document.querySelector('.star')
+      removeStars()
+      asteroidFunction()
+      return
+    }
   }
-  return setTimeout(timeoutFunc, 1000)
+  setTimeout(() => timeoutFunc(asteroid), 1000)
 }
 
 // Remove asteroid
-let removeAsteroid = () => {
-  setTimeout(timeoutFunc, 2000)
+let removeAsteroid = asteroid => {
+  setTimeout(() => timeoutFunc(asteroid), 3000)
 }
 
 //Create asteroid
@@ -220,22 +228,39 @@ let asteroidFunction = () => {
   container.append(asteroid)
   setAsteroidShape(asteroid)
   setAsteroidPosition(asteroid)
-  removeAsteroid()
+  removeAsteroid(asteroid)
 }
 
 showStars()
-asteroidFunction()
+let nameStorage = localStorage.getItem('name')
+console.log(nameStorage)
+if (nameStorage) {
+  playerLabel.textContent = nameStorage
+  asteroidFunction()
+  document.addEventListener('click', () => {
+    laserShot()
+  })
+} else {
+  playerNameContainer.style.display = 'flex'
+  playerPlay.addEventListener('click', () => {
+    playerName = playerInput.value
+    if (playerName) {
+      localStorage.setItem('name', playerName)
+      playerNameContainer.style.display = 'none'
+      asteroidFunction()
+      //Mouse laser shot event listener
+      document.addEventListener('click', () => {
+        laserShot()
+      })
+    }
+  })
+}
 
 //Music playback start after 3 seconds
 let musicPlay = setTimeout(() => {
   audio.play()
   audio.volume = 0.1
 }, 1000)
-
-//Mouse laser shot event listener
-document.addEventListener('click', () => {
-  laserShot()
-})
 
 //Toggle music
 toggleMusic.addEventListener('click', () => {
@@ -263,7 +288,7 @@ document.addEventListener('keydown', event => {
 
 //Mouse ship movement
 document.addEventListener('mousemove', event => {
-  ship.style.left = event.clientX + 'px'
+  ship.style.left = event.clientX - 60 + 'px'
 })
 
 //Touch ship movement
