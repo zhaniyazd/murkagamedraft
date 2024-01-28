@@ -40,15 +40,17 @@ body {
   position: fixed;
   right: 0;
   bottom: 0;
-  min-width: 100%;
+  width: 100%;
   min-height: 100%;
   overflow: hidden;
+  object-fit: cover;
 }
 
 .container {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  position: fixed;
 }
 
 .ship {
