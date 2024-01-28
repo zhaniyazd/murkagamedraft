@@ -261,7 +261,7 @@ if (nameStorage) {
 let musicPlay = setTimeout(() => {
   audio.play()
   audio.volume = 0.1
-}, 1000)
+}, 4000)
 
 //Toggle music
 toggleMusic.addEventListener('click', () => {
