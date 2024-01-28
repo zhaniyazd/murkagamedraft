@@ -475,7 +475,6 @@ body {
     right: 10px;
   }
   .counter {
-    position: fixed;
     display: inline-block;
     font-size: 5rem;
     color: yellow;
@@ -483,7 +482,6 @@ body {
     right: 40px;
   }
   .toggleMusic {
-    position: fixed;
     bottom: 6px;
     left: 10px;
     cursor: pointer;
@@ -498,7 +496,7 @@ body {
     margin-right: 0.6rem;
   }
   .backgroundContainer {
-    position: absolute;
+    position: fixed;
     display: inline-block;
     font-size: 2rem;
     font-weight: bold;
