@@ -221,7 +221,7 @@ body {
 
 .asteroid {
   position: absolute;
-  bottom: -1rem;
+  bottom: -4rem;
   height: 4rem;
   width: 4rem;
   -webkit-transition: top 6s linear;
