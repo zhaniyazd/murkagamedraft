@@ -248,7 +248,7 @@ body {
 }
 
 .toggleMusic {
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   left: 30px;
   cursor: pointer;
@@ -482,6 +482,7 @@ body {
     right: 40px;
   }
   .toggleMusic {
+    position: fixed;
     bottom: 6px;
     left: 10px;
     cursor: pointer;
