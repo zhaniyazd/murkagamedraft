@@ -232,7 +232,7 @@ let asteroidFunction = () => {
 }
 
 showStars()
-let nameStorage = localStorage.getItem('name ')
+let nameStorage = localStorage.getItem('name')
 console.log(nameStorage)
 if (nameStorage) {
   playerLabel.textContent = nameStorage
@@ -294,7 +294,10 @@ document.addEventListener('mousemove', event => {
 
 //Touch ship movement
 ship.addEventListener('touchmove', event => {
-  ship.style.left = Math.floor(event.touches[0].clientX) + 'px'
+  if (Math.floor(event.touches[0].clientX) > window.innerWidth * 0.7) {
+  } else {
+    ship.style.left = Math.floor(event.touches[0].clientX) + 'px'
+  }
 })
 
 //Earth background
