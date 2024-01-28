@@ -232,7 +232,7 @@ let asteroidFunction = () => {
 }
 
 showStars()
-let nameStorage = localStorage.getItem('name')
+let nameStorage = localStorage.getItem('name ')
 console.log(nameStorage)
 if (nameStorage) {
   playerLabel.textContent = nameStorage

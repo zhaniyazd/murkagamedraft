@@ -230,10 +230,10 @@ body {
 .counter {
   position: absolute;
   display: inline-block;
-  font-size: 7rem;
+  font-size: 5rem;
   color: yellow;
-  top: 20px;
-  right: 58px;
+  top: 10px;
+  right: 40px;
 }
 .playerLabel {
   position: absolute;
@@ -244,10 +244,17 @@ body {
   right: 58px;
 }
 
+@media screen and (max-width: 600px) {
+  .playerLabel {
+    font-size: 2rem;
+    bottom: 10px;
+    right: 10px;
+  }
+}
 .toggleMusic {
   position: absolute;
-  bottom: 20px;
-  left: 30px;
+  bottom: 6px;
+  left: 10px;
   cursor: pointer;
 }
 
@@ -268,8 +275,8 @@ body {
 }
 
 .musicButton {
-  width: 3.9rem;
-  height: 3.9rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 .backgroundContainer {
@@ -278,8 +285,8 @@ body {
   font-size: 2rem;
   font-weight: bold;
   color: greenyellow;
-  bottom: 20px;
-  left: 100px;
+  bottom: 6px;
+  left: 50px;
   cursor: pointer;
 }
 
@@ -296,9 +303,9 @@ body {
 }
 
 .planet {
-  height: 4rem;
-  width: 4rem;
-  margin-right: 1rem;
+  height: 3rem;
+  width: 3rem;
+  margin-right: 0.6rem;
 }
 
 .playerNameContainer {
@@ -434,8 +441,8 @@ body {
 .lives {
   position: absolute;
   display: inline-block;
-  left: 30px;
-  top: 20px;
+  left: 10px;
+  top: 10px;
 }
 
 .star {
@@ -465,73 +472,3 @@ body {
   }
 }
 /*# sourceMappingURL=style.css.map */
-@media screen and (max-width: 600px) {
-  .playerLabel {
-    font-size: 2rem;
-    bottom: 10px;
-    right: 10px;
-  }
-  .counter {
-    position: absolute;
-    display: inline-block;
-    font-size: 5rem;
-    color: yellow;
-    top: 10px;
-    right: 40px;
-  }
-  .toggleMusic {
-    position: absolute;
-    bottom: 6px;
-    left: 10px;
-    cursor: pointer;
-  }
-  .musicButton {
-    width: 3rem;
-    height: 3rem;
-  }
-  .planet {
-    height: 3rem;
-    width: 3rem;
-    margin-right: 0.6rem;
-  }
-  .backgroundContainer {
-    position: absolute;
-    display: inline-block;
-    font-size: 2rem;
-    font-weight: bold;
-    color: greenyellow;
-    bottom: 6px;
-    left: 50px;
-    cursor: pointer;
-  }
-  .lives {
-    position: absolute;
-    display: inline-block;
-    left: 10px;
-    top: 10px;
-  }
-  .gameover {
-    width: 90%;
-    height: 60vh;
-    background-color: rgba(255, 255, 0, 0.151);
-    border-radius: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    display: none;
-  }
-  .title {
-    font-size: 3rem;
-  }
-  .highscoreContainer {
-    font-size: 2rem;
-  }
-  .playerNameContainer {
-    width: 90%;
-  }
-  .playerInput {
-    width: 90%;
-  }
-}
